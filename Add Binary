@@ -1,0 +1,14 @@
+class Solution {
+public:
+    string addBinary(string a, string b) {
+        int m = a.size() - 1, n = b.size() - 1, carry = 0;
+        string s = "";
+        while(m >= 0 || n >= 0 || carry != 0){  //more to add in strings or a carry left
+            carry += m >= 0 ? a[m--] - '0' : 0;
+            carry += n >= 0 ? b[n--] - '0' : 0;
+            s = char(carry % 2 + '0') + s;  //add at the front?
+            carry /= 2;
+        }
+        return s;
+    }
+};
