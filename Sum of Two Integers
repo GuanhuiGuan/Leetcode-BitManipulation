@@ -1,0 +1,13 @@
+class Solution {
+    public int getSum(int a, int b) {
+        if(a == 0){return b;}
+        if(b == 0){return a;}
+        
+        while(b != 0){  //regarded as carry
+            int carry = a & b;  // both are 1 -> carry
+            a = a ^ b;  // what addition is for each bit without carry
+            b = carry << 1; //carry applies on the next bit
+        }
+        return a;
+    }
+}
