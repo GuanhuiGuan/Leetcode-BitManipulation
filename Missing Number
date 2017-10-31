@@ -1,0 +1,13 @@
+class Solution {
+    public int missingNumber(int[] nums) {
+        int ori = nums[0];
+        int comp = 0;
+        
+        for(int i = 1; i <= nums.length; i++){//xor
+            if(i < nums.length) {ori = ori ^ nums[i];}
+            comp = comp ^ i;
+        }
+
+        return comp ^ ori;
+    }
+}
